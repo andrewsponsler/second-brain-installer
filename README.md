@@ -33,11 +33,19 @@ Karpathy's sketch supplies the shape — a wiki whose primary reader and writer 
 
 ## Run it
 
+Fastest path — paste this into Claude (or any agent that can reach the web):
+
+```text
+Clone https://github.com/andrewsponsler/second-brain-installer and read the README in full — it's an installer addressed to you. Then run the Second Brain installer exactly as it specifies, starting with the short interview. If you can't run git, fetch it raw instead: https://raw.githubusercontent.com/andrewsponsler/second-brain-installer/main/README.md
+```
+
+Or by hand:
+
 ```bash
 git clone https://github.com/andrewsponsler/second-brain-installer.git && cd second-brain-installer
 ```
 
-Boot any agent that can read and write local files in this folder — Open Claw, Claude Code, Cursor — and say:
+Then boot any agent that can read and write local files in this folder — Open Claw, Claude Code, Cursor — and say:
 
 > **"Run the Second Brain installer."**
 
