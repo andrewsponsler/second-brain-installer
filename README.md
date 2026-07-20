@@ -1,10 +1,35 @@
 # The Second Brain Installer
 
-> **One file. Your AI builds you a private, plain-text second brain in about twenty minutes — your business, your people, your playbooks — then reads it, writes it, and keeps it current. You stop re-explaining yourself. It finally remembers you.**
+An installer **prompt** for an LLM-native personal wiki — the plain-text, agent-maintained knowledge base [Andrej Karpathy sketched](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f), rebuilt around how I actually run one. I'm [Andrew Sponsler](https://andrewsponsler.com); I operate my company on this exact architecture, and this file is that system generalized so any operator can stand one up in an afternoon.
 
-You know the tax. Every session opens with amnesia — who your clients are, what you're building, what you decided Tuesday — rebuilt from scratch, chat after chat. The models got smarter. Your setup still forgets.
+No code, no app, no dependencies. The installer is a spec your AI executes: it interviews you, proposes a folder taxonomy shaped to your operation, builds the wiki, wires it into your agent's always-loaded memory file, and teaches you the maintenance loop on a real capture from your own conversation.
 
-This installs the fix. Not another app: a version-controlled Markdown library **you own**, governed by a schema that turns your AI into a disciplined librarian instead of a hoarder. I'm [Andrew Sponsler](https://andrewsponsler.com) — I run my own company on this exact architecture, with a team of AI agents working on top of it. This repo is the living copy. It gets sharper as I run it.
+## What gets built
+
+```
+memory.md ............ the always-loaded MAP — who you are + pointers (stays lean)
+    │ points into
+    ▼
+your-wiki/
+├── wiki.md .......... the schema — the contract your AI obeys on every operation
+├── index.md ......... live catalog of every page
+├── log.md ........... append-only history of every change
+├── raw/ ............. immutable inputs (articles, transcripts, notes)
+└── [curated layer] .. business/ · people/ · clients/ · knowledge/ · offers/ · …
+                       — named in your vocabulary, picked in the interview
+```
+
+## The mechanics
+
+Five design decisions carry the whole thing:
+
+1. **Three layers.** Immutable raw sources → curated pages with frontmatter → a schema file the agent reads before touching anything.
+2. **Two write paths, nothing else.** `capture` (save what a conversation produced) and `ingest` (feed in a raw source). Both run propose → approve → execute. No silent edits — this discipline is the difference between a knowledge base that compounds and a folder that rots.
+3. **The memory bridge.** The agent's always-loaded memory file becomes a one-page map into the wiki — *memory points; the wiki holds.* This kills the ever-growing memory dump you re-pay for in context every session.
+4. **Provenance + soft-hold.** AI-seeded claims stay `[bracketed]` at low confidence until you confirm them in your own words. Who authored a statement bounds how much it can move confidence — two AI-written docs can never corroborate each other into "truth."
+5. **Adaptive taxonomy, fixed architecture.** The interview reshapes folders to your operation (agency, SaaS, coach, and creator presets included); the layer model and the write discipline never bend.
+
+Karpathy's sketch supplies the shape — a wiki whose primary reader and writer is an LLM. Points 2–4 are what daily operation added: the write discipline because unstructured capture rots, the memory bridge because a growing memory file becomes a context tax, soft-hold because an AI's summary of you is not your voice. What didn't survive real use isn't in here.
 
 ## Run it
 
@@ -12,25 +37,19 @@ This installs the fix. Not another app: a version-controlled Markdown library **
 git clone https://github.com/andrewsponsler/second-brain-installer.git && cd second-brain-installer
 ```
 
-Boot your agent in this folder — Open Claw, Claude Code, Cursor, anything that reads a memory file — and say:
+Boot any agent that can read and write local files in this folder — Open Claw, Claude Code, Cursor — and say:
 
 > **"Run the Second Brain installer."**
 
-Answer a handful of questions. Approve the shape once. Walk away. Twenty minutes later: wiki live, memory wired into it, first capture done. No developer required — it's Markdown and a prompt. Nothing to break, nothing to subscribe to, nothing locking you in.
+A handful of questions, one approval on the proposed tree, ~20 minutes of background build. It finishes by round-tripping a real capture, so you leave knowing the loop. Then hand it ONE real thing — the follow-up you rewrite every week — before you automate anything else. One win, then replicate.
 
-## What you walk away with
+## Practical notes
 
-- **A wiki your AI builds, then keeps** — business, people (a living CRM), playbooks, sources — shaped to your vocabulary, not forced into a template.
-- **The memory bridge** — your agent's always-loaded memory file becomes a lean map pointing into the wiki. Memory points; the wiki holds. Fast agent, deep knowledge, no context tax.
-- **The two-move discipline** — the wiki is only ever written through *capture* and *ingest*: your AI proposes, you approve, it writes. That one rule is why this compounds while every other "second brain" rots into a junk drawer.
-
-## The rule that makes it stick
-
-One win, then replicate. Don't automate your whole operation this weekend — hand the brain ONE thing: the follow-up you rewrite every week, the context you rebuild every Monday. Feel it come back done. Then take the next piece.
+- Works with any agent that reads/writes local files and keeps a memory file. Everything is plain Markdown, local-first; git optional but recommended.
+- The complete spec is this file: **Part 1–2** are for you, **Parts 3–5** (agent instructions, architecture, templates) are addressed to your AI. Reading Part 4 *is* understanding the system.
+- Free, no strings. If it sharpens how you operate, I'd love to hear what you did with it: **as@andrewsponsler.com** · [andrewsponsler.com](https://andrewsponsler.com). The advanced layers — comms ingestion, structured ledgers, automated capture — are the work I do with operators.
 
 ---
-
-**What follows is the complete installer** — the part you read, then the part your AI reads. Read Part 1; everything after the divider belongs to your agent.
 
 <!-- The body below is the canonical distributable, synced verbatim from Andrew's wiki (offers/second-brain-installer.md). Edit the header above freely; keep the body byte-identical to the source. -->
 
