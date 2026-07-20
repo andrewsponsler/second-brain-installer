@@ -1,3 +1,39 @@
+# The Second Brain Installer
+
+> **One file. Your AI builds you a private, plain-text second brain in about twenty minutes — your business, your people, your playbooks — then reads it, writes it, and keeps it current. You stop re-explaining yourself. It finally remembers you.**
+
+You know the tax. Every session opens with amnesia — who your clients are, what you're building, what you decided Tuesday — rebuilt from scratch, chat after chat. The models got smarter. Your setup still forgets.
+
+This installs the fix. Not another app: a version-controlled Markdown library **you own**, governed by a schema that turns your AI into a disciplined librarian instead of a hoarder. I'm [Andrew Sponsler](https://andrewsponsler.com) — I run my own company on this exact architecture, with a team of AI agents working on top of it. This repo is the living copy. It gets sharper as I run it.
+
+## Run it
+
+```bash
+git clone https://github.com/andrewsponsler/second-brain-installer.git && cd second-brain-installer
+```
+
+Boot your agent in this folder — Open Claw, Claude Code, Cursor, anything that reads a memory file — and say:
+
+> **"Run the Second Brain installer."**
+
+Answer a handful of questions. Approve the shape once. Walk away. Twenty minutes later: wiki live, memory wired into it, first capture done. No developer required — it's Markdown and a prompt. Nothing to break, nothing to subscribe to, nothing locking you in.
+
+## What you walk away with
+
+- **A wiki your AI builds, then keeps** — business, people (a living CRM), playbooks, sources — shaped to your vocabulary, not forced into a template.
+- **The memory bridge** — your agent's always-loaded memory file becomes a lean map pointing into the wiki. Memory points; the wiki holds. Fast agent, deep knowledge, no context tax.
+- **The two-move discipline** — the wiki is only ever written through *capture* and *ingest*: your AI proposes, you approve, it writes. That one rule is why this compounds while every other "second brain" rots into a junk drawer.
+
+## The rule that makes it stick
+
+One win, then replicate. Don't automate your whole operation this weekend — hand the brain ONE thing: the follow-up you rewrite every week, the context you rebuild every Monday. Feel it come back done. Then take the next piece.
+
+---
+
+**What follows is the complete installer** — the part you read, then the part your AI reads. Read Part 1; everything after the divider belongs to your agent.
+
+<!-- The body below is the canonical distributable, synced verbatim from Andrew's wiki (offers/second-brain-installer.md). Edit the header above freely; keep the body byte-identical to the source. -->
+
 # The Operator's Second Brain
 
 ### An LLM-native wiki you actually own — your AI builds it in about 20 minutes.
